@@ -4,13 +4,28 @@
 // 1, -7, 567, 89, 223-> 3
 
 
-Console.Write("Введите M чисел: ");
-int[] arr = Array.ConvertAll(Console.ReadLine().Split(), int.Parse);
+Console.Write("Введите размер массива:\t");
+int size = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите элементы массива:\t");
+int [] array = GetArray(size);
+Console.WriteLine($"Массив: [{String.Join(", ", array)}]");
+
+int[] GetArray (int size)
+{
+    int [] result = new int[size];
+    for (int i = 0; i < result.Length; i++)
+    {
+        result[i] = int.Parse(Console.ReadLine());
+    }    
+    return result;
+}
+
+
 int count = 0;
  
-for (int i = 0; i < arr.Length; i++)
+for (int i = 0; i < array.Length; i++)
 {
-    if (arr[i] > 0)
+    if (array[i] > 0)
     {
         count++;
     }
